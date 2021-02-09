@@ -57,7 +57,7 @@ plugin:
   "plugins": [
     "...",
     [
-      "tailwind-rn",
+      "tailwind-rn-classname",
       {
         "tailwindRNExportPath": "my/custom/module",
         "tailwindRNExportName": "tailwind"
