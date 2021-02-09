@@ -40,7 +40,7 @@ Add it to your `.babelrc` (or any Babel config file)
 ```json
 {
   "plugins": [
-    // ...
+    "..."
     "tailwind-rn-classname"
   ]
 }
@@ -55,7 +55,7 @@ plugin:
 ```json
 {
   "plugins": [
-    // ...
+    "..."
     [
       "tailwind-rn",
       {
@@ -88,7 +88,7 @@ the configuration will be:
 ```json
 {
   "plugins": [
-    // ...
+    "..."
     [
       "tailwind-rn-classname",
       {
