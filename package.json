@@ -14,11 +14,13 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ext .ts",
+    "build": "babel src/index.ts -d dist --extensions \".ts\" && cp src/types.d.ts dist",
     "typecheck": "tsc --noEmit",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-typescript": "^7.12.13",
