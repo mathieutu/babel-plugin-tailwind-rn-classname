@@ -1,5 +1,15 @@
 # Changelog
 
+<a name="0.0.2"></a>
+## 0.0.2 (2021-02-09)
+
+### Fixed
+
+- 🐛 Remove corejs dependency and bump required Node version. [[2ce763e](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/2ce763ecaf581970ca5666fc768f62471179deaa)]
+- ✏️ Fix wrong plugin name on Readme. [[6645908](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/66459089b6f73df404ad07d309caa10830b9ec9f)]
+- 🏷️ Fix Typescript setup. [[1f20cc6](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/1f20cc6b0eacf95795410a9c377749974e39f439)]
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2021-02-09)
 
