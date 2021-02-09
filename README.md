@@ -40,7 +40,6 @@ Add it to your `.babelrc` (or any Babel config file)
 ```json
 {
   "plugins": [
-    "...",
     "tailwind-rn-classname"
   ]
 }
@@ -55,7 +54,6 @@ plugin:
 ```json
 {
   "plugins": [
-    "...",
     [
       "tailwind-rn-classname",
       {
@@ -88,7 +86,6 @@ the configuration will be:
 ```json
 {
   "plugins": [
-    "...",
     [
       "tailwind-rn-classname",
       {
@@ -99,6 +96,22 @@ the configuration will be:
   ]
 }
 ```
+
+### Typescript
+
+To be allowed to use a `className` attribute on all your component, 
+you have to add the `babel-plugin-tailwind-rn-classname` types to your "types" array in `tsconfig.json`.
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "babel-plugin-tailwind-rn-classname"
+    ]
+  }
+}
+```
+
 
 ## Usage
 

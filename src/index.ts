@@ -3,7 +3,6 @@ import { addNamed } from '@babel/helper-module-imports'
 import type { PluginObj, types } from 'babel-core'
 import type { NodePath } from 'babel-traverse'
 import { resolve as resolvePath } from 'path'
-import { PluginOptions } from './types'
 import packageJson from '../package.json'
 
 const filterFalsy = <T>(array: Array<T | undefined | false | null>) => array.filter(Boolean) as T[]
@@ -14,6 +13,11 @@ type Expression = types.Expression
 type ObjectExpression = types.ObjectExpression
 
 type StyleObject = Record<string, string | number>
+
+type PluginOptions = {
+  tailwindRNExportPath?: string,
+  tailwindRNExportName?: string,
+}
 
 export default ({ types: t }: Babel): PluginObj => {
   const getObjectExpression = (styleObject: StyleObject): ObjectExpression | undefined => {
