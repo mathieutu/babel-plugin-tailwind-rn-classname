@@ -1,0 +1,20 @@
+{
+  "name": "babel-plugin-tailwind-rn-classname",
+  "version": "1.0.0",
+  "description": "Add a className attribute to your React Native component with Tailwind classes handling.",
+  "main": "dist/index.js",
+  "typings": "dist/types.d.ts",
+  "author": "Mathieu TUDISCO <oss@mathieutu.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/mathieutu/babel-plugin-tailwind-rn-classname",
+  "repository": "https://github.com/mathieutu/babel-plugin-tailwind-rn-classname.git",
+  "bugs": {
+    "url": "https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
