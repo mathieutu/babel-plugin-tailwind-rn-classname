@@ -120,10 +120,10 @@ React.createElement(View, { style: [{ height: 4, display: "flex" }, (0, _tailwin
       title: 'it can use custom tailwind function path',
       // @ts-ignore todo https://github.com/DefinitelyTyped/DefinitelyTyped/pull/51112
       pluginOptions: {
-        tailwindRNExportPath: '__tests__/custom',
+        tailwindRNExportPath: '__tests__/custom.ts',
       },
       code: '<View className={`${prop} flex`}>content</View>',
-      output: `var _custom = _interopRequireDefault(require("${resolvePath(__dirname, './custom')}"));
+      output: `var _custom = _interopRequireDefault(require("${resolvePath(__dirname, './custom.ts')}"));
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -133,11 +133,11 @@ React.createElement(View, { style: [{ default: "flex" }, (0, _custom.default)(pr
       title: 'it can use custom tailwind function path and name',
       // @ts-ignore
       pluginOptions: {
-        tailwindRNExportPath: '__tests__/custom',
+        tailwindRNExportPath: '__tests__/custom.ts',
         tailwindRNExportName: 'named',
       },
       code: '<View className={`${prop} flex`}>content</View>',
-      output: `var _custom = require("${resolvePath(__dirname, './custom')}");
+      output: `var _custom = require("${resolvePath(__dirname, './custom.ts')}");
 React.createElement(View, { style: [{ named: "flex" }, (0, _custom.named)(prop)] }, "content");`,
     },
   ],

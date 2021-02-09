@@ -1,25 +1,28 @@
 // @ts-ignore
 import { addNamed } from '@babel/helper-module-imports'
-import type { PluginObj, types } from 'babel-core'
+import type babel from 'babel-core'
 import type { NodePath } from 'babel-traverse'
+import requireFromString from 'require-from-string'
 import { resolve as resolvePath } from 'path'
 import packageJson from '../package.json'
 
 const filterFalsy = <T>(array: Array<T | undefined | false | null>) => array.filter(Boolean) as T[]
 
-type Babel = { types: typeof types }
-type JSXAttribute = types.JSXAttribute
-type Expression = types.Expression
-type ObjectExpression = types.ObjectExpression
+type Babel = typeof babel
+type JSXAttribute = babel.types.JSXAttribute
+type Expression = babel.types.Expression
+type ObjectExpression = babel.types.ObjectExpression
 
 type StyleObject = Record<string, string | number>
+type TailwindFunction = (classes: string) => StyleObject
 
 type PluginOptions = {
   tailwindRNExportPath?: string,
   tailwindRNExportName?: string,
 }
 
-export default ({ types: t }: Babel): PluginObj => {
+type Path = NodePath<JSXAttribute>
+export default ({ types: t, transformFileSync }: Babel): babel.PluginObj => {
   const getObjectExpression = (styleObject: StyleObject): ObjectExpression | undefined => {
     if (!Object.keys(styleObject).length) return
 
@@ -36,13 +39,18 @@ export default ({ types: t }: Babel): PluginObj => {
     if (t.isJSXExpressionContainer(nodeValue)) return nodeValue.expression
   }
 
-  const createHelpers = (path: NodePath<JSXAttribute>, options: PluginOptions = {}) => {
-    const tailwindRNExportName = options.tailwindRNExportName || 'default'
-    const tailwindRNExportPath = options.tailwindRNExportPath
-      ? resolvePath(options.tailwindRNExportPath)
-      : 'tailwind-rn'
+  const getTailwindFunction = (options: PluginOptions): TailwindFunction => {
+    if (!options.tailwindRNExportPath) {
+      return require('tailwind-rn')
+    }
 
-    const tailwind = require(tailwindRNExportPath)[tailwindRNExportName]
+    const { code } = transformFileSync(options.tailwindRNExportPath)
+
+    return requireFromString(code!)[options.tailwindRNExportName || 'default']
+  }
+
+  const createHelpers = (path: Path, options: PluginOptions = {}) => {
+    const tailwind = getTailwindFunction(options)
 
     const getTailwindExpression = (classesExpression: Expression | undefined): Expression[] | undefined => {
       if (!classesExpression) return
@@ -68,7 +76,11 @@ export default ({ types: t }: Babel): PluginObj => {
         return filterFalsy([getObjectExpression(styleObject)])
       }
 
-      const tailwindIdentifier = addNamed(path, tailwindRNExportName, tailwindRNExportPath)
+      const tailwindIdentifier = addNamed(
+        path,
+        options.tailwindRNExportName || 'default',
+        options.tailwindRNExportPath ? resolvePath(options.tailwindRNExportPath) : 'tailwind-rn',
+      )
 
       return [t.callExpression(tailwindIdentifier, [classesExpression])]
     }
