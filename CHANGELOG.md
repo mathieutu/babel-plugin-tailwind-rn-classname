@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="0.0.3"></a>
+## 0.0.3 (2021-02-10)
+
+### Added
+
+- 📈 Add code coverage. [[c2fbd6b](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/c2fbd6b417064ef940de793e1cc777623aef457f)]
+
+### Fixed
+
+- 🐛 Fix require browser/typescript tailwind custom file in plugin. [[7b4272c](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/7b4272cdd3e6107a9c6bcaf00afde0d67eebdde0)]
+-  👷 Fix issues in test workflow. [[7f0b06c](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/commit/7f0b06cb4cc5abc73a9e5f975aed782d2ec5b09e)]
+
+
 <a name="0.0.2"></a>
 ## 0.0.2 (2021-02-09)
 

@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-tailwind-rn-classname",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add a className attribute to your React Native component with Tailwind classes handling.",
   "main": "dist/index.js",
   "typings": "dist/types.d.ts",
