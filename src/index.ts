@@ -49,7 +49,7 @@ export default ({ types: t, transformFileSync }: Babel): babel.PluginObj => {
     return requireFromString(code!)[options.tailwindRNExportName || 'default']
   }
 
-  const createHelpers = (path: Path, options: PluginOptions = {}) => {
+  const createHelpers = (path: Path, options: PluginOptions) => {
     const tailwind = getTailwindFunction(options)
 
     const getTailwindExpression = (classesExpression: Expression | undefined): Expression[] | undefined => {
@@ -86,8 +86,6 @@ export default ({ types: t, transformFileSync }: Babel): babel.PluginObj => {
     }
 
     const getStyleExpressionAndRemoveStyleNode = (): Expression | undefined => {
-      if (!Array.isArray(path.container)) return
-
       const container: JSXAttribute[] = path.container as any
 
       const styleNodeIndex = container.findIndex(({ name }) => name.name === 'style')
@@ -96,9 +94,7 @@ export default ({ types: t, transformFileSync }: Babel): babel.PluginObj => {
 
       const styleNodeValue = container[styleNodeIndex].value
 
-      if (!t.isJSXExpressionContainer(styleNodeValue)) return
-
-      const styleExpression = styleNodeValue.expression
+      const styleExpression = t.isJSXExpressionContainer(styleNodeValue) ? styleNodeValue.expression : undefined
 
       path.getSibling(styleNodeIndex).remove()
 

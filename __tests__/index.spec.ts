@@ -45,6 +45,24 @@ pluginTester({
       teardown: () => expect(warnCount).toBe(1),
     },
     {
+      title: 'it handles when nothing passed to className',
+      code: '<View className>content</View>',
+      output: 'React.createElement(View, null, "content");',
+      teardown: () => expect(warnCount).toBe(1),
+    },
+    {
+      title: 'it works when nothing passed to style',
+      code: '<View className="h-10" style>content</View>',
+      output: 'React.createElement(View, { style: [{ height: 40 }] }, "content");',
+      teardown: () => expect(warnCount).toBe(1),
+    },
+    {
+      title: 'it works when style is empty',
+      code: '<View className="h-10" style="">content</View>',
+      output: 'React.createElement(View, { style: [{ height: 40 }] }, "content");',
+      teardown: () => expect(warnCount).toBe(1),
+    },
+    {
       title: 'it does not convert unknown classNames, but handles good ones',
       code: '<View className="foo flex">content</View>',
       output: 'React.createElement(View, { style: [{ display: "flex" }] }, "content");',

@@ -12,7 +12,7 @@
     "url": "https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/issues"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint . --ext .ts",
     "build": "babel src/index.ts -d dist --extensions \".ts\" && cp src/types.d.ts dist",
     "typecheck": "tsc --noEmit",

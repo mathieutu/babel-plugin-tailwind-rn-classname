@@ -1,9 +1,9 @@
 # babel-plugin-tailwind-rn-classname
 
-[![Version](https://img.shields.io/npm/v/babel-plugin-tailwind-rn-classname.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-tailwind-rn-classname?activeTab=versions)
-[![Downloads](https://img.shields.io/npm/dt/babel-plugin-tailwind-rn-classname.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-tailwind-rn-classname)
-[![License](https://img.shields.io/github/license/mathieutu/babel-plugin-tailwind-rn-classname.svg?style=flat-square)](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/blob/master/CONTRIBUTING.md)
+[![Version](https://img.shields.io/npm/v/babel-plugin-tailwind-rn-classname)](https://www.npmjs.com/package/babel-plugin-tailwind-rn-classname?activeTab=versions)
+[![Downloads](https://img.shields.io/npm/dt/babel-plugin-tailwind-rn-classname)](https://www.npmjs.com/package/babel-plugin-tailwind-rn-classname)
+[![License](https://img.shields.io/github/license/mathieutu/babel-plugin-tailwind-rn-classname)](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/blob/master/LICENSE)
+[![100% Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/mathieutu/babel-plugin-tailwind-rn-classname/actions?query=workflow%3A%22Run+tests%22)
 
 Babel plugin to use your tailwind classes directly in React Native.
 
