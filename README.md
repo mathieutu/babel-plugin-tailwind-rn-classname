@@ -57,7 +57,7 @@ plugin:
     [
       "tailwind-rn-classname",
       {
-        "tailwindRNExportPath": "my/custom/module",
+        "tailwindRNExportPath": "my/custom/file",
         "tailwindRNExportName": "tailwind"
       }
     ]
@@ -65,10 +65,10 @@ plugin:
 }
 ```
 
-| option                 | description                                                                                   | default value |
-|------------------------|-----------------------------------------------------------------------------------------------|---------------|
-| `tailwindRNExportPath` | Path to your file from your current working directory (usualy same than your  `package.json`) | `tailwind-rn` |
-| `tailwindRNExportName` | Name of your export in the file                                                               | `default`     |
+| option                 | description                                                                                   | default value         |
+|------------------------|-----------------------------------------------------------------------------------------------|-----------------------|
+| `tailwindRNExportPath` | Path to your file from your current working directory (usualy same than your  `package.json`) | `tailwind-rn` package |
+| `tailwindRNExportName` | Name of your export in the file                                                               | `default`             |
 
 So considering a root `tailwindRN.ts` file which contains:
 
@@ -89,7 +89,7 @@ the configuration will be:
     [
       "tailwind-rn-classname",
       {
-        "tailwindRNExportPath": "./tailwindRN",
+        "tailwindRNExportPath": "./tailwindRN.ts",
         "tailwindRNExportName": "tw"
       }
     ]
